@@ -1,0 +1,20 @@
+{
+  "name": "memcached-populate",
+  "author": "Georgio Barbosa ",
+  "license": "ISC",
+  "version": "1.0.0",
+  "description": "A script that bring products from Datajet and populate it in memcached for test porpuses",
+  "main": "./src/run.js",
+  "scripts": {
+    "mc:run": "node   ./src/run.js"
+  },
+  "dependencies": {
+    "dot-env": "^0.0.1",
+    "dotenv": "^8.2.0",
+    "memcache-client": "^0.10.1",
+    "memcached-encoding-fork": "^2.1.2",
+    "node-fetch": "^2.6.0",
+    "phpunserialize": "^1.0.1",
+    "zlib": "^1.0.5"
+  }
+}
