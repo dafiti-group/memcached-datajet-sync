@@ -91,8 +91,6 @@ const buildNewCategories = (ids) => {
   return JSON.stringify(out)
 }
 
-// oque é image Sprite
-
 const hidrate = (dp) => {
   try {
     dp.attributes = buildAttributes(dp.attributes)
@@ -170,10 +168,14 @@ const hidrate = (dp) => {
 
     if ('model' in dp.attributes) product.attributes.model = dp.attributes.model[0]
     if ('color' in dp.attributes) product.attributes.color = dp.attributes.color[0]
-    if ('short_description' in dp.attributes) product.attributes.description = dp.attributes.short_description[0]
+    if ('short_description' in dp.attributes) {
+      product.attributes.description = dp.attributes.short_description[0]
+    } else {
+      product.attributes.description = dp.title
+    }
     if ('config_erp_id' in dp.attributes) product.attributes.config_erp_id = dp.attributes.config_erp_id[0]
     if ('erp_fifth_department_level' in dp.attributes) product.attributes.erp_fifth_department_level = dp.attributes.erp_fifth_department_level[0]
-
+    product.brandwithlogolink = 'ASDASdasdas'
     return product
   } catch (e) {
     console.error(e, JSON.stringify(dp))

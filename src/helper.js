@@ -14,9 +14,7 @@ const memcached = new Memcached(MEMCACHED_HOST, {
 })
 
 function setKey (key, data, memcached) {
-  memcached.set(key, data, 100000, (d, t) => {
-    console.log(">> ", d, t)
-  })
+  memcached.set(key, data, 100000)
 }
 
 function registerProduct (prod) {
@@ -24,8 +22,9 @@ function registerProduct (prod) {
   const urlSections = prod.url.split('-')
   const urlId = urlSections[urlSections.length - 1].replace('.html', '')
   const phpSerial = phpserialize(hidrate(prod))
+  const productJson = JSON.stringify(prod)
 
-  setKey(KEY_PREFIX + sku, phpSerial, memcached)
+  setKey(KEY_PREFIX + sku, productJson, memcached)
   setKey(`br_integrationurlmapping_${urlId}`, sku, memcached)
   console.log(`br_integrationurlmapping_${urlId}`, sku)
   console.log('Key created:', KEY_PREFIX + sku)

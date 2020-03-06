@@ -1,3 +1,13 @@
 #Memcached Datajet sync
 
-Um simples script para sincronizar dados da Datajet com o memcachede
+Um Script para sincronizar dados da Datajet com o memcached.
+
+## Install 
+```sh 
+yarn
+```
+
+## Run
+```sh
+node ./src/run.js <query>
+```
