@@ -42,10 +42,19 @@ hk.search(BODY).then(res => {
     const memcachedKey = hidrate(product)
     const linkParts = memcachedKey.link.split('-')
     const pid = linkParts[linkParts.length - 1].split('.')[0]
-    setKey(MEMCACHE_PREFIX + memcachedKey.meta.sku, JSON.stringify(memcachedKey), memcached)
-    setKey('br_integrationurlmapping_' + pid, memcachedKey.meta.sku, memcached)
-    console.log('br_integrationurlmapping_' + pid, memcachedKey.meta.sku)
-    console.log('populating', memcachedKey.meta.sku)
+    setKey(MEMCACHE_PREFIX + memcachedKey.meta.sku, JSON.stringify(memcachedKey), memcached, (error) => {
+      if (!error) {
+        console.log('br_integrationurlmapping_' + pid, memcachedKey.meta.sku)
+      } else {
+        console.log(error)
+      }
+    })
+    setKey('br_integrationurlmapping_' + pid, memcachedKey.meta.sku, memcached, (error) => {
+      if (!error) {
+        console.log('populating', memcachedKey.meta.sku)
+      } else {
+        console.log(error)
+      }
+    })
   })
-  console.log('Finished!')
 })
