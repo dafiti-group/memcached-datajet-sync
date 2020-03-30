@@ -13,8 +13,8 @@ const memcached = new Memcached(MEMCACHED_HOST, {
   zlibInflate: true
 })
 
-function setKey (key, data, memcached) {
-  memcached.set(key, data, 100000)
+function setKey (key, data, memcached, callback) {
+  memcached.set(key, data, 100000, callback || (() => {}))
 }
 
 function registerProduct (prod) {
