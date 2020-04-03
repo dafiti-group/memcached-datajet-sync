@@ -7,7 +7,17 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "memcached pop",
+            "name": "Launch Program",
+            "args": ["gravata"],
+            "program": "${workspaceFolder}/src/run.js",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "memcached sync",
             "runtimeExecutable": "node",
             "program": "${workspaceFolder}/src/run.js",
             "console": "integratedTerminal",

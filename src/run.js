@@ -1,4 +1,3 @@
-'use strict'
 const { Hawk } = require('./Datajet')
 const { setKey } = require('./helper')
 const hidrate = require('./hidrate')
@@ -57,4 +56,4 @@ hk.search(BODY).then(res => {
       }
     })
   })
-})
+}).catch(console.error)
