@@ -13,7 +13,7 @@
     "dotenv": "^8.2.0",
     "memcache-client": "^0.10.1",
     "memcached-encoding-fork": "^2.1.2",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "phpunserialize": "^1.0.1",
     "zlib": "^1.0.5"
   }
